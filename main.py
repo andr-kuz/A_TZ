@@ -3,9 +3,9 @@ from collections import defaultdict
 input_list = []
 
 with open("lng1.txt", "r") as file:
-    reader = file.readlines()
-    for i in reader:
-        input_list.append(i.strip().split(";"))
+    lines = file.readlines()
+    for line in lines:
+        input_list.append(line.split(";"))
 graph = mk_graph(input_list)
 res = return_grouped(input_list)
 
