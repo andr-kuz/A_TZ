@@ -6,6 +6,11 @@ with open("lng1.txt", "r") as file:
     reader = file.readlines()
     for i in reader:
         input_list.append(i.strip().split(";"))
+graph = mk_graph(input_list)
+res = return_grouped(input_list)
+
+for i in range(len(res)):
+    print(f"Group {i+1}: {res[i]}")
 
 
 def mk_graph(array):
@@ -34,9 +39,6 @@ def dfs(node, visited, arr, graph):
     return group
 
 
-graph = mk_graph(input_list)
-
-
 def return_grouped(array):
     visited = set()
     result = []
@@ -45,16 +47,3 @@ def return_grouped(array):
             group = dfs(i, visited, input_list, graph)
             result.append(group)
     return result
-
-
-res = return_grouped(input_list)
-
-for i in range(len(res)):
-    print(f"Group {i+1}: {res[i]}")
-
-
-
-
-
-
-
