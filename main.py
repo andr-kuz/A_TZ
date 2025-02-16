@@ -2,7 +2,7 @@ from collections import defaultdict
 
 def mk_graph(array):
     graph = defaultdict(list)
-    for i in range(len(array)):
+    for i, value in enumerate(array):
         for j in range(i + 1, len(array)):
             for k in range(min(len(array[i]), len(array[j]))):
                 if array[i][k] == array[j][k]:
@@ -40,7 +40,7 @@ if __name__ == '__main__':
     input_list = []
 
     with open("lng1.txt", "r") as file:
-        lines = file.readlines()
+        lines = file.read().splitlines()
         for line in lines:
             input_list.append(line.split(";"))
     graph = mk_graph(input_list)
