@@ -1,18 +1,5 @@
 from collections import defaultdict
 
-input_list = []
-
-with open("lng1.txt", "r") as file:
-    lines = file.readlines()
-    for line in lines:
-        input_list.append(line.split(";"))
-graph = mk_graph(input_list)
-res = return_grouped(input_list)
-
-for i in range(len(res)):
-    print(f"Group {i+1}: {res[i]}")
-
-
 def mk_graph(array):
     graph = defaultdict(list)
     for i in range(len(array)):
@@ -47,3 +34,17 @@ def return_grouped(array):
             group = dfs(i, visited, input_list, graph)
             result.append(group)
     return result
+
+
+if __name__ == '__main__':
+    input_list = []
+
+    with open("lng1.txt", "r") as file:
+        lines = file.readlines()
+        for line in lines:
+            input_list.append(line.split(";"))
+    graph = mk_graph(input_list)
+    res = return_grouped(input_list)
+
+    for i in range(len(res)):
+        print(f"Group {i+1}: {res[i]}")
